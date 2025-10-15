@@ -1,9 +1,7 @@
 import { Request, Response } from "express";
 import { AuthService } from "../services/authServices";
 import { RESPONSE } from "../utils/response";
-export interface AuthenticatedRequest extends Request {
-    userId?: number;
-}
+import { AuthenticatedRequest } from "../interfaces/auth";
 export class AuthController {
     static async register(req: Request, res: Response) {
         try {

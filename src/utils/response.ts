@@ -22,6 +22,26 @@ export const RESPONSE = {
             status: 200,
             message: "Password reset successfully",
         },
+        PRODUCT_CREATED: {
+            status: 201,
+            message: "Product created successfully",
+        },
+        PRODUCTS_FETCHED: {
+            status: 200,
+            message: "All products fetched successfully",
+        },
+        PRODUCT_FETCHED: {
+            status: 200,
+            message: "Product fetched successfully",
+        },
+        PRODUCT_UPDATED: {
+            status: 200,
+            message: "Product updated successfully",
+        },
+        PRODUCT_DELETED: {
+            status: 200,
+            message: "Product deleted successfully",
+        },
     },
 
     ERROR: {
@@ -49,5 +69,14 @@ export const RESPONSE = {
             status: 500,
             message: "Internal server error",
         },
+        USER_NOT_FOUND: {
+            status: 404,
+            message: "User not found",
+        },
+        PRODUCT_NOT_FOUND: {
+            status: 404,
+            message: "Product not found",
+        },
+
     },
 };

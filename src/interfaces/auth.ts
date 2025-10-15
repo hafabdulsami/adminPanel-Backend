@@ -1,3 +1,4 @@
+import { Request } from "express";
 export interface RegisterCredentials {
     name: string;
     email: string;
@@ -20,4 +21,8 @@ export interface User {
 export interface LoginResult {
     user: Omit<User, "password">; // Return user without password
     token: string;
+}
+
+export interface AuthenticatedRequest extends Request {
+    userId?: number;
 }

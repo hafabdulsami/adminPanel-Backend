@@ -11,13 +11,12 @@ export class ProductService {
         name,
         price,
         category,
-        userId,
-    }: CreateProductRequestBody): Promise<Product> {
+    }: CreateProductRequestBody, userId: number | undefined): Promise<Product> {
         const user = await prisma.user.findUnique({ where: { id: userId } });
         if (!user) throw new Error("User not found");
 
         const product = await prisma.product.create({
-            data: { name, price, category, userId },
+            data: { name, price, category, userId: user.id },
         });
 
         return product;
