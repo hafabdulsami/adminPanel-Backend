@@ -25,6 +25,7 @@ export class ProductService {
     static async getAllProducts(): Promise<(Product & { createdBy: any })[]> {
         const products = await prisma.product.findMany({
             include: { createdBy: true },
+            orderBy: { createdAt: "desc" },
         });
         return products;
     }
