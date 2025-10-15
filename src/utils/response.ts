@@ -30,6 +30,10 @@ export const RESPONSE = {
             status: 200,
             message: "All products fetched successfully",
         },
+        DASHBOARD_DATA: {
+            status: 200,
+            message: "Dashboard data fetched successfully",
+        },
         PRODUCT_FETCHED: {
             status: 200,
             message: "Product fetched successfully",
@@ -77,6 +81,9 @@ export const RESPONSE = {
             status: 404,
             message: "Product not found",
         },
-
+        DASHBOARD_NOT_FOUND: {
+            status: 404,
+            message: "Dashboard data not found",
+        }
     },
 };
