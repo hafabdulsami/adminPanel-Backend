@@ -46,6 +46,10 @@ export const RESPONSE = {
             status: 200,
             message: "Product deleted successfully",
         },
+        EMAIL_VERIFIED: {
+            status: 200,
+            message: "Email verified successfully",
+        }
     },
 
     ERROR: {

@@ -5,11 +5,10 @@ import { AuthenticatedRequest } from "../interfaces/auth";
 export class AuthController {
     static async register(req: Request, res: Response) {
         try {
-            const data = await AuthService.register(req.body);
+            await AuthService.register(req.body);
 
             return res.status(RESPONSE.SUCCESS.USER_REGISTERED.status).json({
-                message: RESPONSE.SUCCESS.USER_REGISTERED.message,
-                data,
+                message: `${RESPONSE.SUCCESS.USER_REGISTERED.message} and ${RESPONSE.SUCCESS.OTP_SENT.message}`,
             });
         } catch (err: any) {
             const message =
@@ -60,5 +59,18 @@ export class AuthController {
                 .json({ message: RESPONSE.ERROR.INTERNAL_SERVER_ERROR.message });
         }
     }
-
+    static async verifyEmail(req: Request, res: Response) {
+        try {
+            const { otp } = req.body;
+            await AuthService.verifyUser(otp);
+            return res.status(RESPONSE.SUCCESS.EMAIL_VERIFIED.status).json({
+                message: RESPONSE.SUCCESS.EMAIL_VERIFIED.message,
+            });
+        } catch (error) {
+            console.error(error);
+            return res
+                .status(RESPONSE.ERROR.INTERNAL_SERVER_ERROR.status)
+                .json({ message: RESPONSE.ERROR.INTERNAL_SERVER_ERROR.message });
+        }
+    }
 }
